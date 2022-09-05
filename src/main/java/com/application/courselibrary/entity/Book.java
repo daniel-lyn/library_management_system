@@ -1,9 +1,16 @@
 package com.application.courselibrary.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "books")
 public class Book {
@@ -24,7 +31,7 @@ public class Book {
     @JoinTable(name = "books_authors",
             joinColumns = {@JoinColumn(name = "book_id")},
             inverseJoinColumns = {@JoinColumn(name = "author_id")})
-    private Set<Author> autors = new HashSet<Author>();
+    private Set<Author> authors = new HashSet<Author>();
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "books_categories",
