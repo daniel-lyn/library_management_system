@@ -23,4 +23,8 @@ public class Category {
 
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
     private Set<Book> books = new HashSet<Book>();
+
+    public Category(String name) {
+        this.name = name;
+    }
 }
