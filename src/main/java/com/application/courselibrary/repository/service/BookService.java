@@ -1,6 +1,7 @@
 package com.application.courselibrary.repository.service;
 
 
+import com.application.courselibrary.entity.Author;
 import com.application.courselibrary.entity.Book;
 import com.application.courselibrary.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,10 @@ public class BookService {
     }
 
     public void createBook(Book book) {
+        bookRepository.save(book);
+    }
+
+    public void updateBook(Book book) {
         bookRepository.save(book);
     }
 
