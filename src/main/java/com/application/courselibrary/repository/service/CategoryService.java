@@ -20,7 +20,7 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Category findPublisherById(Long id) {
+    public Category findCategoryById(Long id) {
         Category category ;
         category = categoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find category "));
         return category;

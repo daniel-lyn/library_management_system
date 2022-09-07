@@ -28,6 +28,15 @@ public class CourselibraryApplication {
 			book1.addCategory(category1);
 			book1.addPublisher(publisher1);
 			bookService.createBook(book1);
+
+			Book book2 = new Book("DEF", "Bookname2", "MySecondBook");
+			Author author2 = new Author("Authorname2", "Test Description2");
+			Category category2 = new Category("Categoryname2");
+			Publisher publisher2 = new Publisher("Publishername2");
+			book2.addAuthor(author2);
+			book2.addCategory(category2);
+			book2.addPublisher(publisher2);
+			bookService.createBook(book2);
 		};
 	}
 }
