@@ -72,4 +72,24 @@ public class BookController {
             return "redirect:/books";
         }
     }
+
+    @GetMapping("/add-book")
+    public String addBook(Book book, Model model){
+        model.addAttribute("categories", categoryService.findAllCategories());
+        model.addAttribute("publishers", publisherService.findAllPublishers());
+        model.addAttribute("authors", authorService.findAllAuthors());
+        return "add-book";
+    }
+
+    @PostMapping("/save-book")
+    public String saveBook(Book book,BindingResult result, Model model){
+        if(result.hasErrors()){
+            return "add-book";
+        }
+        else{
+            bookService.updateBook(book);
+            model.addAttribute("books", bookService.findAllBooks());
+            return "redirect:/books";
+        }
+    }
 }
